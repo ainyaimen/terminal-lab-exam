@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-const Book = require('/Book'); // Assuming Book schema is defined in another file
+const Book = require('../Book');
 
 const borrowerSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, 'Name is required'],
+    required: true,
   },
   borrowedBooks: [{
     type: mongoose.Schema.Types.ObjectId,
@@ -12,16 +12,15 @@ const borrowerSchema = new mongoose.Schema({
   }],
   membershipActive: {
     type: Boolean,
-    required: [true, 'Membership status is required'],
+    required: true,
   },
   membershipType: {
     type: String,
     enum: ['standard', 'premium'],
-    required: [true, 'Membership type is required'],
+    required: true,
   },
 });
 
-// Custom validation for borrowing limits based on membership type
 borrowerSchema.pre('save', function (next) {
   const borrowLimit = this.membershipType === 'premium' ? 10 : 5;
   if (this.borrowedBooks.length > borrowLimit) {
