@@ -1,0 +1,26 @@
+{
+	"info": {
+		"_postman_id": "02cdf412-1c07-4020-bc15-c74bb952a8f1",
+		"name": "Library Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39574555"
+	},
+	"item": [
+		{
+			"name": "Add a new book",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
